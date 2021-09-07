@@ -27,14 +27,22 @@ const summon = async () => {
   for (let i = 0; i < summonCountPerClass; i++) {
     for (const c of classes) {
       console.log(`Summoning class ${c} for the ${i + 1} times...`)
+
       const tx = await rarity.summon(c, {
         gasPrice,
         gasLimit: 200000,
         nonce: null,
       })
       const receipt = await tx.wait()
+
+      console.log(
+        `Transaction receipt : https://www.bscscan.com/tx/${receipt.logs[1].transactionHash}`
+      )
+
       const tokenId = parseInt(receipt.logs[0].topics[3], 16)
       tokenIds.push(tokenId)
+
+      console.log(`Hero #${tokenId} is summoned!`)
     }
   }
 
