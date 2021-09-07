@@ -36,7 +36,7 @@ const summon = async () => {
       const receipt = await tx.wait()
 
       console.log(
-        `Transaction receipt : https://www.bscscan.com/tx/${receipt.logs[1].transactionHash}`
+        `Transaction receipt : https://ftmscan.com/tx/${receipt.logs[1].transactionHash}`
       )
 
       const tokenId = parseInt(receipt.logs[0].topics[3], 16)
