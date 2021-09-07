@@ -46,3 +46,5 @@ const run = async () => {
   console.log('Summoned Token IDs:')
   console.log(tokenIds.join(','))
 }
+
+await run()
