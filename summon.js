@@ -7,6 +7,7 @@ const conf = {
   wssNode: 'wss://wsapi.fantom.network',
   rarityContractAddress: '0xce761d788df608bd21bdd59d6f4b54b2e27f25bb',
   privateKey: process.env.WALLET_PRIVATE_KEY,
+  summonCountPerClass: process.env.SUMMON_COUNT,
 }
 
 const provider = new ethers.providers.WebSocketProvider(conf.wssNode)
@@ -17,7 +18,7 @@ const abi = ['function summon(uint256)']
 const rarity = new ethers.Contract(conf.rarityContractAddress, abi, account)
 
 const classes = [1, 2, 3, 4, 5, 7, 8, 9, 10, 11]
-const summonCountPerClass = 100
+const summonCountPerClass = parseInt(conf.summonCountPerClass, 10)
 
 const gasPrice = ethers.utils.parseUnits('70', 'gwei')
 
