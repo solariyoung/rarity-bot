@@ -44,6 +44,10 @@ const summon = async () => {
       tokenIds.push(tokenId)
 
       console.log(`Hero #${tokenId} is summoned!`)
+
+      console.log('==============================')
+      console.log('Summoned Token IDs:')
+      console.log(tokenIds.join(','))
     }
   }
 
@@ -52,8 +56,6 @@ const summon = async () => {
 
 const run = async () => {
   const tokenIds = await summon()
-  console.log('Summoned Token IDs:')
-  console.log(tokenIds.join(','))
 }
 
 await run()
