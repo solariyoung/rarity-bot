@@ -35,6 +35,7 @@ const summon = async () => {
         nonce: null,
       })
       const receipt = await tx.wait()
+     
 
       console.log(
         `Transaction receipt : https://ftmscan.com/tx/${receipt.logs[1].transactionHash}`
@@ -48,6 +49,19 @@ const summon = async () => {
       console.log('==============================')
       console.log('Summoned Token IDs:')
       console.log(tokenIds.join(','))
+      
+      const tx2 = await rarity.adventure(tokenId,{
+        gasPrice,
+        gasLimit: 200000,
+        nonce: null,
+      })
+      const receipt2 = await tx2.wait()
+      
+      console.log(
+        `Transaction receipt : https://ftmscan.com/tx/${receipt2.logs[1].transactionHash}`
+      )
+      console.log(`Hero #${tokenId} is adventured!`)
+      
     }
   }
 
